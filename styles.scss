@@ -1,0 +1,146 @@
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+.accordion {
+
+   width: 70%;
+   margin: 20vh auto;
+
+   &__item {
+       list-style-type: none;
+       margin: .5rem 0;
+   }
+
+   
+
+   &__bar {
+       height: 5vh;
+       background-color: teal;
+       color: white;
+       padding: .2rem 1rem;
+       position: relative;
+       cursor: pointer;
+   }
+
+   &__bar::before {
+       content: 'show';
+       position: absolute;
+       right: 2vw;
+       top: 50%;
+       transform: translateY(-50%);
+       color: wheat;
+   }
+
+   &__bar:hover::before {
+       color: white;
+   }
+
+   &__content {
+       height: 0;
+       overflow: hidden;
+   }
+
+   &__item.active &__content {
+    height: auto;
+    padding: .4rem;
+    text-align: right;
+    
+}
+
+&__item.active &__bar::before {
+    content: 'hide';
+    font-style: oblique;
+}
+
+}
+
+
+.galley {
+     margin: 4rem auto;
+     width: 300px;
+     height: 350px;
+     color: white;
+     position: relative;
+
+     &__slide {
+         width: 100%;
+         height: 100%;
+         padding: 2px;
+         background: linear-gradient( 75deg, rgb(182, 93, 93), rgb(56, 56, 167), rgb(55, 112, 55));
+         display: flex;
+         flex-direction: column;
+
+         position: absolute;
+         left: 0;
+         top: 0;
+
+         display: none;
+     }
+
+     &__slide.active {
+         display: block;
+     }
+
+     &__photo-wrapper {
+         width: 100%;
+         height: 250px;
+     }
+
+     &__caption {
+         height: 100px;
+         padding: .5rem .1rem .2rem .7rem;
+         background-color: rgb(2, 92, 92);
+     }
+
+
+}
+
+#photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+
+#prev, 
+#next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    cursor: pointer;
+    color: white;
+    padding: .2rem .6rem;
+    background-color: rgb(102, 16, 102);
+    font-size: 1.1rem;
+    border-radius: .6rem;
+    border: none;
+    outline: none;
+}
+
+#prev:hover, 
+#next:hover {
+    background-color: rgb(101, 24, 173);
+}
+
+
+#prev {
+    left: 4px;
+}
+
+#next {
+    right: 4px;
+}
+
+
